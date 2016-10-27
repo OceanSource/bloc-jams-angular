@@ -1,8 +1,9 @@
 (function() {
-    function CollectionCtrl() {
+    function CollectionCtrl(Fixtures) {
+		
 		this.albums = [];
 			for (var i=0; i < 2; i++) {
-				this.albums.push(angular.copy(albumPicasso));
+				this.albums.push();
 			}
     }
  
