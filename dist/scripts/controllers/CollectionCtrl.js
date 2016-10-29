@@ -1,13 +1,13 @@
 (function() {
     function CollectionCtrl(Fixtures) {
-		
 		this.albums = [];
 			for (var i=0; i < 2; i++) {
-				this.albums.push();
+				this.album = Fixtures.getAlbum();
+				this.albums.push(this.album);
 			}
     }
  
      angular
          .module('blocJams')
-         .controller('CollectionCtrl', CollectionCtrl);
+         .controller('CollectionCtrl',[ 'Fixtures', CollectionCtrl ] );
  })();

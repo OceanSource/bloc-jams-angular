@@ -6,7 +6,7 @@
 				enabled: true,
 				requireBase: false
 			});
-			console.log("app.js")
+			
 		$stateProvider
 			.state('landing', {
 				url: '/',
