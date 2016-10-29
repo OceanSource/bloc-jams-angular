@@ -1,8 +1,18 @@
 (function() {
     function SongPlayer() {
+		
+		/**
+		* @desc SongPlayer object
+		* @type {Object}
+		**/
         var SongPlayer = {};
 		
-		var currentSong = null;
+		/**
+		* @desc album object 
+		* @type {Object}
+		**/
+		var currentSong = null;		
+		
 		/**
 		* @desc Buzz object audio file
 		* @type {Object}
@@ -28,25 +38,44 @@
 			currentSong = song;
 		};
 
-
+		/**
+		* @function playSong
+		* @desc Plays currentBuzzObject song and sets song.playing bool to true
+		* @param {Object} song		
+		*/		
+		var playSong = function(song) {
+			currentBuzzObject.play();
+			song.playing = true;
+		};
 		
+		/**
+		* @function SongPlayer.play
+		* @desc Logic to control playing of song. New selected song or paused song set to play
+		* @param {Object} song
+		*/
 		SongPlayer.play = function(song) {
 		    if (currentSong !== song) {
-				setSong(song);
-			
-				currentBuzzObject.play();
-				song.playing = true;
+				setSong(song);				
+				playSong(song);
+				
 			} else if (currentSong === song) {
 				if (currentBuzzObject.isPaused()) {
 					currentBuzzObject.play();
 				}
 			}
 		};
-		
+
+		/**
+		* @function SongPlayer.pause
+		* @desc Pauses currentBuzzObject song and sets bool of song.playing to false
+		* @param {Object} song
+		* @returns {Object}
+		*/		
 		SongPlayer.pause = function(song) {
 			currentBuzzObject.pause();
 			song.playing = false;
 		};
+		
 		
         return SongPlayer;
     }
