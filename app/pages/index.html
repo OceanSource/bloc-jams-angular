@@ -8,6 +8,8 @@
 		<link rel="stylesheet" type="text/css" href="/styles/normalize.css">
 		<link rel="stylesheet" type="text/css" href="/styles/main.css">
 		<link rel="stylesheet" type="text/css" href="/styles/landing.css">
+		<link rel="stylesheet" type="text/css" href="/styles/metric.css">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/nvd3/1.8.2/nv.d3.min.css"/>
 		<link rel="stylesheet" type="text/css" href="/styles/collection.css">
 		<link rel="stylesheet" type="text/css" href="/styles/album.css">
 		<link rel="stylesheet" type="text/css" href="/styles/player_bar.css">
@@ -19,27 +21,32 @@
 			</a>
 			<div class="links-container">
 				<a ui-sref="collection" class="navbar-link">collection</a>
+				<a ui-sref="metric" class="navbar-link">metrics</a>
 			</div>
 		</nav>
 		<ui-view></ui-view>
-		<script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
-		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular.min.js"></script>
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/angular-nvd3/1.0.9/angular-nvd3.min.js"></script>
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.12.0/moment.js"></script>
+		<script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>		    
+		<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.3.9/angular.min.js"></script>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.15/angular-ui-router.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.6/d3.min.js" charset="utf-8"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/nvd3/1.8.2/nv.d3.min.js"></script>
+		<script src="https://rawgit.com/krispo/angular-nvd3/v1.0.6/dist/angular-nvd3.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.12.0/moment.js"></script>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/buzz/1.1.10/buzz.min.js"></script>
-		<script src="/scripts/app.js"></script>	
-	
+		<script src="/scripts/app.js"></script>		
 		<script src="/scripts/services/Fixtures.js"></script>
 		<script src="/scripts/services/SongPlayer.js"></script>
 		<script src="/scripts/services/Metrics.js"></script>	
-		<script src="/scripts/controllers/LandingCtrl.js"></script>			
-		<script src="/scripts/controllers/CollectionCtrl.js"></script>	
+		<script src="/scripts/controllers/LandingCtrl.js"></script>	
+		<script src="/scripts/controllers/CollectionCtrl.js"></script>			
+		<script src="/scripts/controllers/MetricCtrl.js"></script>
 		<script src="/scripts/controllers/AlbumCtrl.js"></script>
 		<script src="/scripts/controllers/PlayerBarCtrl.js"></script>
 		<script src="/scripts/directives/seekBar.js"></script>
 		<script src="/scripts/directives/volumeBar.js"></script>
 		<script src="/scripts/filters/timecode.js"></script>
+		
+
 
 		
 	</body>

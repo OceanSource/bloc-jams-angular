@@ -1,21 +1,74 @@
- <section class="hero-content">
-     <h1 class="hero-title">{{ landing.heroTitle }}</h1>
- </section>
- 
- <section class="selling-points container clearfix">
-     <div class="point column third">
-         <span class="ion-music-note"></span>
-         <h5 class="point-title">Choose your music</h5>
-         <p class="point-description">The world is full of music; why should you have to listen to music that someone else chose?</p>
-     </div>
-     <div class="point column third">
-         <span class="ion-radio-waves"></span>
-         <h5 class="point-title">Unlimited, streaming, ad-free</h5>
-         <p class="point-description">No arbitrary limits. No distractions.</p>
-     </div>
-     <div class="point column third">
-         <span class="ion-iphone"></span>
-         <h5 class="point-title">Mobile enabled</h5>
-         <p class="point-description">Listen to your music on the go. This streaming service is available on all mobile platforms.</p>
-     </div>
- </section>
+<div id="metrics" ng-controller="MetricCtrl">
+
+  <div class="container narrow">
+
+    <h2>{{title}}</h2>
+    <h4>{{subTitle}}</h4>
+
+    <div id="metrics-d3" class="clearfix">
+
+      <div class="column half">
+        <h3>Albums Played</h3>
+        <nvd3 data="albumData" options="albumOptions"></nvd3>
+      </div>
+
+      <div class="column half">
+        <h3>Songs Played</h3>
+        <nvd3 data="songsData" options="songsOptions"></nvd3>
+      </div>
+
+    </div>
+
+    <div id="album-drill-down" class="clearfix">
+      <div class="column half" ng-repeat="album in metricsObj.albums" ng-if="album.count !== 0">
+
+        <h3>{{album.name}} by {{album.artist}}</h3> <p>Selected Count: {{album.count}}</p>
+
+        <table class="metric-table">
+          <thead>
+            <tr>
+              <th class="song">Songs</th>
+              <th class="plays">Play Count</th>
+            </tr>
+          </thead>
+
+          <tbody>
+            <tr ng-repeat="song in metricsObj.albums[$index].songs">
+              <td>{{ song.name }}</td>
+              <td>{{ song.count}}</td>
+            </tr>
+          </tbody>
+        </table>
+
+      </div>
+    </div>
+
+    <div id="history" class="clearfix">
+
+      <h3>History</h3>
+
+      <table class="metric-table">
+        <thead>
+          <tr>
+            <th class="date">Time</th>
+            <th class="songHistory">Song</th>
+            <th class="artist">Artist</th>
+            <th class="album">Album</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <tr ng-repeat="song in metricsObj.history">
+            <td>{{ song.date | date:'medium' }}</td>
+            <td>{{ song.song }}</td>
+            <td>{{ song.artist }}</td>
+            <td>{{ song.album }}</td>
+          </tr>
+        </tbody>
+      </table>
+
+    </div>
+
+  </div>
+
+</div>

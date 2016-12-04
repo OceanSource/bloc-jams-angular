@@ -1,6 +1,6 @@
 (function() {
 	
-   function config($stateProvider, $locationProvider, ['nvd3']) {
+   function config($stateProvider, $locationProvider) {
 		$locationProvider
 			.html5Mode({
 				enabled: true,
@@ -30,6 +30,6 @@
 			});				
    }	
    angular
-       .module('blocJams', ['ui.router'])
+       .module('blocJams', ['ui.router','nvd3'])
        .config(config);
 })();

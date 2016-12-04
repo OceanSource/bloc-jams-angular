@@ -44,7 +44,9 @@
 			}
  
  
-			Metrics.registerSongPlay(song);
+			// Count the songs played
+			Metrics.songCount(getSongIndex(song),currentAlbum);
+
  
  
  			/**
