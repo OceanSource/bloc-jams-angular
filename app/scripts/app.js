@@ -1,6 +1,6 @@
 (function() {
 	
-   function config($stateProvider, $locationProvider) {
+   function config($stateProvider, $locationProvider, ['nvd3']) {
 		$locationProvider
 			.html5Mode({
 				enabled: true,
@@ -22,6 +22,11 @@
 				url: '/album',
 				controller: 'AlbumCtrl as album',
 				templateUrl: '/templates/album.html'
+			})
+			.state('metric', {
+				url: '/metric',
+				controller: 'MetricCtrl as metric',
+				templateUrl: '/templates/metric.html'
 			});				
    }	
    angular

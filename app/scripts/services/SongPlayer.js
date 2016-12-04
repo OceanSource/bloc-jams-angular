@@ -1,7 +1,9 @@
 (function() {
-    function SongPlayer($rootScope, Fixtures) {
+    function SongPlayer($rootScope, Fixtures, Metrics) {
 		
 		// Private
+		
+
 		
 		/**
 		* @desc SongPlayer object
@@ -40,6 +42,10 @@
 				currentBuzzObject.stop();
 				SongPlayer.currentSong.playing = null;
 			}
+ 
+ 
+			Metrics.registerSongPlay(song);
+ 
  
  			/**
 			* @desc create new buzz.sound object
@@ -210,5 +216,5 @@
 
     angular
 		.module('blocJams')
-        .factory('SongPlayer', ['$rootScope', 'Fixtures', SongPlayer]);
+        .factory('SongPlayer', ['$rootScope', 'Fixtures', 'Metrics', SongPlayer]);
 })();
