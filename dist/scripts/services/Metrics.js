@@ -2,43 +2,65 @@
   function Metrics($rootScope, Fixtures){
 
   
-	  	var albumPicasso = {
-			title: 'The Colors',
-			artist: 'Pablo Picasso',
-			label: 'Cubism',
-			year: '1881',
-			albumArtUrl: '/assets/images/album_covers/01.png',
-			songs: [
-				{ title: 'Blue', duration: '161.71', audioUrl: '/assets/music/blue' },
-				{ title: 'Green', duration: '103.96', audioUrl: '/assets/music/green' },
-				{ title: 'Red', duration: '268.45', audioUrl: '/assets/music/red' },
-				{ title: 'Pink', duration: '153.14', audioUrl: '/assets/music/pink' },
-				{ title: 'Magenta', duration: '374.22', audioUrl: '/assets/music/magenta' }
-			]
-		};
+// Setup our metrics fixture
+      $rootScope.metricsObj = {
+        "albums": [
+          {
+            "artist": "Pablo Picasso",
+            "name": "The Colors",
+            "count": 0,
+            "songs": [
+              { "name": "Blue", "count": 0 },
+              { "name": "Green", "count": 0 },
+              { "name": "Red", "count": 0 },
+              { "name": "Pink", "count": 0 },
+              { "name": "Magenta", "count": 0 }
+            ]
+          },
+          {
+            "artist": "Broke For Free",
+            "name": "Directionless EP",
+            "count": 0,
+            "songs": [
+              { "name": "Night Owl", "count": 0 },
+              { "name": "My Always Mood", "count": 0 },
+              { "name": "Day Bird", "count": 0 },
+              { "name": "My Luck", "count": 0 },
+              { "name": "Mell's Parade", "count": 0 },
+              { "name": "Only Instrumental", "count": 0 }
+            ]
+          },
+          {
+            "name": "Mystery Club",
+            "artist": "Waylon Thornton",
+            "label": "White Moon Recordings",
+            "count": 0,
+            "songs": [
+              { "name": "Bronco Romp", "count": 0 },
+              { "name": "Favorite Secrets", "count": 0 },
+              { "name": "Flashlight Tag", "count": 0 },
+              { "name": "Look For Danger", "count": 0 },
+              { "name": "Piece Of Eight", "count": 0 },
+              { "name": "Very Hazel", "count": 0 },
+              { "name": "Wobbly Way", "count": 0 }
+            ]
+          }
+        ],
+        "history": []
+      };
 
-      var metricsObj = $rootScope.metricsObj = { 
-	       
-		   albums:   Fixtures.getAlbum();
-	  metricsObj.album = {};
-	  metricsObj.album = Fixtures.getAlbum();
-	  metricsObj.album.history = [];
-	  metricsObj.album.titleCount = 0;
-	  console.log(album);
-	  
+      var metricsObj = $rootScope.metricsObj.albums;
 
       return {
 
         // Count the number of times an album is selected
-        albumCount: function(albumTitle){
-          metricsObj[albumTitle].count += 1;
+        albumCount: function(songNum){
+          metricsObj[songNum].count += 1;
         },
 
         // Count the number of times a song is played
         songCount: function(songNum, albumNum){
           // Increment song count
-		  console.log(songNum);
-		   
           metricsObj[albumNum].songs[songNum].count += 1;
 
           // Add to the song history log
@@ -58,8 +80,7 @@
 
     }
 
-
-  angular
-    .module('blocJams')
-    .service('Metrics', ['$rootScope','Fixtures', Metrics]);
+    angular
+		.module('blocJams')
+        .factory('Metrics', ['$rootScope', 'Fixtures', Metrics]);
 })();

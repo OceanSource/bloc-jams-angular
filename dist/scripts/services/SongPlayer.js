@@ -45,7 +45,7 @@
  
  
 			// Count the songs played
-			Metrics.songCount(getSongIndex(song),currentAlbum);
+			Metrics.songCount(getSongIndex(song),0);
 
  
  
